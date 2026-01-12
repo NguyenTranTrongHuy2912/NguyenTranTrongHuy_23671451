@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #1</title>
+</head>
+<body>
+    <input type="text" id="m1" placeholder="Mark's mass (kg)"><br>
+    <input type="text" id="h1" placeholder="Mark's height (m)"><br><br>
+    <input type="text" id="m2" placeholder="John's mass (kg)"><br>
+    <input type="text" id="h2" placeholder="John's height (m)"><br><br>
+    <button id="btn">So sánh BMI</button>
+
+    <script>
+        let BMI = function(mass, height) {
+            return mass / (height * height);
+        };
+        let markHigherBMI = true;
+
+        document.getElementById("btn").onclick = function() {
+            let bmiMark = BMI(parseFloat(document.getElementById("m1").value), parseFloat(document.getElementById("h1").value));
+            let bmiJohn = BMI(parseFloat(document.getElementById("m2").value), parseFloat(document.getElementById("h2").value));
+            
+            let markHigherBMI = bmiMark > bmiJohn;
+            console.log("Mark has a higher BMI: " + markHigherBMI);
+        }
+    </script>
+    
+</body>
+</html>
