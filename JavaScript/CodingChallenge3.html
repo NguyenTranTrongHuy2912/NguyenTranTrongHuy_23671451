@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #3</title>
+</head>
+
+<body>
+    <input type="text" id="d1" placeholder="Dolphins score 1"><br>
+    <input type="text" id="d2" placeholder="Dolphins score 2"><br>
+    <input type="text" id="d3" placeholder="Dolphins score 3"><br>
+    <br>
+    <input type="text" id="k1" placeholder="Koalas score 1"><br>
+    <input type="text" id="k2" placeholder="Koalas score 2"><br>
+    <input type="text" id="k3" placeholder="Koalas score 3"><br>
+    <br>
+    <button id="btn">Compare Scores</button>
+
+    <script>
+        let averageScore = function (score1, score2, score3) {
+            return (score1 + score2 + score3) / 3;
+        };
+
+        document.getElementById("btn").onclick = function () {
+            let avgDolphins = averageScore(parseFloat(document.getElementById("d1").value), parseFloat(document.getElementById("d2").value), parseFloat(document.getElementById("d3").value));
+            let avgKoalas = averageScore(parseFloat(document.getElementById("k1").value), parseFloat(document.getElementById("k2").value), parseFloat(document.getElementById("k3").value));
+            console.log(`Điểm trung bình của Dolphins: ${avgDolphins}`);
+            console.log(`Điểm trung bình của Koalas: ${avgKoalas}`);
+
+            if (avgDolphins > avgKoalas && avgDolphins >= 100) {
+                console.log(`Dolphins thắng với điểm trung bình là: ${avgDolphins}!`);
+            } else if (avgKoalas > avgDolphins && avgKoalas >= 100) {
+                console.log(`Koalas thắng với điểm trung bình là: ${avgKoalas}!`);
+            } else if (avgDolphins === avgKoalas && avgDolphins >= 100 && avgKoalas >= 100) {
+                console.log(`Hai đội hòa với điểm trung bình là: ${avgDolphins}.`);
+            } else {
+                console.log('Không có đội nào thắng.');
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
