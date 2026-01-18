@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #1 - Part 2</title>
+</head>
+
+<body>
+    <input type="text" id="d1" placeholder="Dolphins score 1"><br>
+    <input type="text" id="d2" placeholder="Dolphins score 2"><br>
+    <input type="text" id="d3" placeholder="Dolphins score 3"><br>
+    <br>
+    <input type="text" id="k1" placeholder="Koalas score 1"><br>
+    <input type="text" id="k2" placeholder="Koalas score 2"><br>
+    <input type="text" id="k3" placeholder="Koalas score 3"><br>
+    <br>
+    <button id="btn">Compare Scores</button>
+
+    <script>
+        //1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
+        let calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
+
+        // 2. Use the function to calculate the average for both teams
+        document.getElementById("btn").onclick = function () {
+            let avgDolphins = calcAverage(parseFloat(document.getElementById("d1").value), parseFloat(document.getElementById("d2").value), parseFloat(document.getElementById("d3").value));
+            let avgKoalas = calcAverage(parseFloat(document.getElementById("k1").value), parseFloat(document.getElementById("k2").value), parseFloat(document.getElementById("k3").value));
+            console.log(`Điểm trung bình của Dolphins: ${avgDolphins}`);
+            console.log(`Điểm trung bình của Koalas: ${avgKoalas}`);
+
+            // 3. Create a function 'checkWinner' that takes the average score of each team
+            function checkWinner(avgDolphins, avgKoalas) {
+                if (avgDolphins >= 2 * avgKoalas) {
+                    console.log(`Dolphins win (${avgDolphins} vs. ${avgKoalas})`);
+                } else if (avgKoalas >= 2 * avgDolphins) {
+                    console.log(`Koalas win (${avgKoalas} vs. ${avgDolphins})`);
+                } else {
+                    console.log('No team wins.');
+                }
+            }
+
+            // 4. Use the 'checkWinner' function to determine the winner
+            checkWinner(avgDolphins, avgKoalas);
+        }
+    </script>
+</body>
+
+</html>
