@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Cơ Bản</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+        }
+
+        img {
+            display: block;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Quản Lý Sinh Viên</h1>
+
+    <input type="text" id="userName" placeholder="Nhập tên...">
+    <button onclick="handleCreate()">Thêm</button>
+
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Ảnh</th>
+                <th>Họ Tên</th>
+                <th>Ngày Tạo</th>
+                <th>Sửa/Xóa</th>
+            </tr>
+        </thead>
+        <tbody id="userListData"></tbody>
+    </table>
+
+
+    <!-- Các file script -->
+    <!-- <script src="app-fetch-thuan.js"></script>
+    <script src="app-async-await.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="app-axios.js"></script>
+
+</body>
+
+</html>
