@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   var url = "https://jsonplaceholder.typicode.com/users"
 
   // useEffect(() => {
@@ -18,26 +19,43 @@ function App() {
   //   })
   // }, [])
 
+
   useEffect(() => {
     async function fetchData(params) {
-      var res = await fetch(url);
-      var datafetch = await res.json();
-      setData(datafetch);
+      try {
+        var res = await fetch(url);
+        var datafetch = await res.json();
+        setData(datafetch);
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false);
+      }
+
     }
     fetchData();
+
   }, [])
 
 
+  if (loading) return (<div>Loading...</div>)
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <>
-      {
-        data.map((item) => {
-          return <div key={item.id}>
-            <h2>{item.name}</h2>
-            <h2>{item.email}</h2>
-          </div>
-        })
-      }
+    <>{
+
+      data.map((item) => {
+        return <div key={item.id}>
+          <h2>{item.name}</h2>
+          <h2>{item.email}</h2>
+        </div>
+
+      })
+    }
+
 
     </>
   )
