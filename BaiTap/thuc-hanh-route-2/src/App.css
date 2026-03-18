@@ -1,0 +1,14 @@
+/* Style mặc định cho cả 2 loại link */
+a {
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+/* Chỉ NavLink mới có class này khi được click */
+a.active {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
