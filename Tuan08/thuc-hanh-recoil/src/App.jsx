@@ -23,6 +23,10 @@ function App() {
     setW(w + 1)
   }
 
+  function handleAddToCart(){
+    setMyCart([...myCart,{id: Date.now(), name: 'Product', quantity: '1'}])
+  }
+
   return (
     <>
       <div>
@@ -34,6 +38,17 @@ function App() {
           <button onClick={handleChangeWidth}>Change height</button>
         </div>
       </div>
+      <br />
+      <button onClick={handleAddToCart}>Add To Cart</button>
+      {
+        myCart.map((item)=>{
+          return <div key={item.id}>
+            <h2>{item.name}</h2>
+            <h2>{item.quantity}</h2>
+            <h2>{item.price}</h2>
+          </div>
+        })
+      }
     </>
   )
 }
